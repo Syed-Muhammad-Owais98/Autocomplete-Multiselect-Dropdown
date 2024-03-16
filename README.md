@@ -1,46 +1,96 @@
-# Getting Started with Create React App
+![image](https://github.com/Syed-Muhammad-Owais98/autocomplete-multiselect-dropdown/assets/151091964/12f7d47e-f21a-41ea-8bc1-55f5ae4d7a96)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+# React Dropdown Component
 
-### `npm start`
+A customizable, multi-select dropdown component for React applications, featuring search functionality and easy integration. Perfect for projects requiring user selection from a list of options. Built with React Hooks and integrated with Tailwind CSS for styling.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Multi-Select**: Allows selecting multiple items from the dropdown.
+- **Search Functionality**: Includes a search input to filter options.
+- **Customizable**: Supports various props to customize functionality and appearance.
+- **Accessibility**: Designed with accessibility in mind.
+- **Tailwind CSS Integration**: Styled with Tailwind CSS for easy customization.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ensure you have Node.js installed on your machine, then clone this repository or download the source code. Navigate to your project directory and run:
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This will install all necessary dependencies for the project.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+First, import the `DropDown` component into your React application:
 
-### `npm run eject`
+```jsx
+import DropDown from "./path/to/component/DropDown";
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Then, you can use the `DropDown` component in your application as follows:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```jsx
+import React, { useState } from "react";
+import DropDown from "./component/dropdown/DropDown"; // Adjust the path as necessary
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+const App = () => {
+  const [selectedValue, setSelectedValue] = useState([]);
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  const data = [
+    // Your dropdown options here
+  ];
 
-## Learn More
+  return (
+    <div className="App">
+      <DropDown
+        fieldTitle="Select Option"
+        isMultiSelect={true}
+        selectedItems={selectedValue}
+        listItems={data}
+        onValueSelected={setSelectedValue}
+        showDialogTitle={false}
+        showDialogButton={true}
+        showSearch={true}
+      />
+    </div>
+  );
+};
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+export default App;
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Props
+
+| Prop                | Type       | Description                                           |
+| ------------------- | ---------- | ----------------------------------------------------- |
+| `fieldTitle`        | `string`   | Title of the dropdown field.                          |
+| `isMultiSelect`     | `boolean`  | Enables selection of multiple items.                  |
+| `selectedItems`     | `array`    | Currently selected items.                             |
+| `listItems`         | `array`    | Array of items to display as options.                 |
+| `onValueSelected`   | `function` | Callback function invoked when selection changes.     |
+| `showDialogTitle`   | `boolean`  | Shows or hides the dialog title.                      |
+| `showDialogButton`  | `boolean`  | Shows or hides the dialog button.                     |
+| `showSearch`        | `boolean`  | Enables the search functionality.                     |
+| `destinationRef`    | `object`   | Reference to the element to render the dropdown menu. |
+
+## Styling
+
+This component is styled using Tailwind CSS. You can customize the appearance by modifying the Tailwind classes within the component or applying custom styles via props.
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
+
+## Licensing
+
+This project is available under the [MIT License](LICENSE.md).
+
+---
+
+Remember to replace placeholder texts like `./path/to/component/DropDown` with the actual path where your component is located and fill in any additional details specific to your project or component functionality.
