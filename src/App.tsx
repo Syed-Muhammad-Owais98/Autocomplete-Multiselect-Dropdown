@@ -1,26 +1,79 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useRef, useState } from "react";
+import DropDown from "./component/dropdown/dropdown";
+import { State } from "./component/dropdown/interface";
 
-function App() {
+const data = [
+  {
+    id: 0,
+    name: "Active",
+  },
+  {
+    id: 2,
+    name: "Hidden ",
+  },
+  {
+    id: 3,
+    name: "Reminder",
+  },
+  {
+    id: 6,
+    name: "Paid ",
+  },
+  {
+    id: 7,
+    name: "Settled ",
+  },
+  {
+    id: 8,
+    name: "Debt collection",
+  },
+  {
+    id: 11,
+    name: "Protected ",
+  },
+  {
+    id: 21,
+    name: "Active - handled manually",
+  },
+  {
+    id: 23,
+    name: "Active - System",
+  },
+];
+
+const App = () => {
+  const [state, setState] = useState<State>({
+    selectedValue: [],
+  });
+  const destinationRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App bg-gray-50 min-h-screen flex justify-center items-center p-4">
+      <div className="w-full max-w-md bg-slate-400 shadow-lg rounded-lg p-4">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">
+          Select Status
+        </h2>
+
+        <DropDown
+          fieldTitle="Status"
+          isMultiSelect={true}
+          selectedItems={state.selectedValue}
+          listItems={data}
+          onValueSelected={(values) => {
+            const newState = {
+              ...state,
+            };
+            newState.selectedValue = values;
+            setState(newState);
+          }}
+          showDialogTitle={false}
+          showDialogButton={true}
+          showSearch={true}
+          destinationRef={destinationRef}
+        />
+      </div>
     </div>
   );
-}
+};
 
 export default App;

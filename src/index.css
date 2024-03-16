@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,145 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+  }
+  .scrollbar-slim::-webkit-scrollbar {
+      width: 5px;
+  }
+  .scrollbar-slim::-webkit-scrollbar-thumb {
+      background-color: #025578;
+      border-radius: 50pt;
+  }
+  .scrollbar-dropdown {
+      scrollbar-width: thin;
+      scrollbar-color: #404040 transparent;
+      overflow-y: auto;
+  }
+  .scrollbar-dropdown::-webkit-scrollbar {
+      width: 5px;
+  }
+  .scrollbar-dropdown::-webkit-scrollbar-thumb {
+      background-color: #404040;
+      border-radius: 50pt;
+  }
+  .scrollbar-dropdown::-webkit-scrollbar-track {
+      background: #e4e4e4;
+      border-radius: 50pt;
+      margin: 8px 0px 8px 0px;
+  }
+
+  .scrollbar-slim-over::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+  }
+  .recharts-responsive-container {
+      margin: 0 auto;
+  }
+  .outline select:focus-within ~ label,
+  .outline select:not(:placeholder-shown) ~ label {
+      @apply transform scale-75 -translate-y-3.5 z-0 ml-2 px-1 py-0;
+  }
+  .outline input:not(:placeholder-shown) ~ label,
+  .outline textarea:focus-within ~ label,
+  .outline textarea:not(:placeholder-shown) ~ label,
+  .outline input:focus-within ~ label {
+      @apply transform scale-75 -translate-y-7 z-0 ml-2 px-1 py-0;
+  }
+  .placeholder-label {
+      @apply transform scale-75 -translate-y-3.5 z-0 ml-2 px-2 py-0;
+  }
+  input:focus::-webkit-input-placeholder {
+      opacity: 0;
+  }
+  input:focus::-moz-placeholder {
+      opacity: 0;
+  }
+  *,
+  *:focus {
+      outline: none;
+  }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+  input[value='']::-webkit-datetime-edit,
+  input[value='0001-01-01T05:53']::-webkit-datetime-edit,
+  input[value='0001-01-01T00:50']::-webkit-datetime-edit {
+      color: transparent;
+  }
+  .dateLabel {
+      z-index: 0;
+      margin-left: 0.5rem;
+      --tw-translate-y: -0.875rem;
+      --tw-scale-x: 0.75;
+      --tw-scale-y: 0.75;
+      transform: var(--tw-transform);
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+      padding-top: 0px;
+      padding-bottom: 0px;
+  }
+  .mb-20 {
+      margin-bottom: 5.2rem;
+  }
+  .check__ {
+      width: 28px;
+      height: 27px;
+  }
+  .check__:checked {
+      outline: unset;
+  }
+  .react-datepicker {
+      display: flex !important;
+  }
+  .img__wrap {
+      position: relative;
+      left: 0px;
+  }
+  .img__description {
+      position: absolute;
+      top: 0;
+      right: 0;
+      --tw-text-opacity: 1;
+      color: rgb(55 65 81 / var(--tw-text-opacity));
+      display: none;
+      opacity: 0;
+      transition: opacity 0.2s, visibility 0.2s;
+      left: 30px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      background-color: white;
+      color: #00789b;
+      border: 1px solid black;
+      padding: 5px 5px 7px 5px;
+      border-radius: 6px;
+      font-size: 13px;
+      width: 257px;
+  }
+  .img__wrap img:hover + .img__description {
+      display: inline-block;
+      z-index: 100;
+      opacity: 1;
+  }
+  .pieParent {
+      position: relative;
+  }
+  .pieBar {
+      position: absolute;
+      right: 15%;
+      top: 40%;
+      z-index: 2;
+      font-size: 10px;
+  }
 }
